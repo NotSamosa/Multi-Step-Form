@@ -7,6 +7,9 @@ import { useFormStore } from "@/store/useFormStore";
 import { useFormHydration } from "@/hooks/useFormHydration";
 import { Sparkles, ShieldCheck } from "lucide-react";
 
+import { Step1Personal } from "@/components/steps/Step1Personal";
+import { Step2Address } from "@/components/steps/Step2Address";
+
 export default function Home() {
   const isHydrated = useFormHydration();
   const currentStep = useFormStore((state) => state.currentStep);
@@ -56,14 +59,20 @@ export default function Home() {
 
           {/* Form Step Animated Content */}
           <FormCardWrapper>
-            <div className="py-8 text-center border border-dashed border-slate-800 rounded-xl bg-slate-950/40">
-              <p className="text-slate-300 font-medium">
-                Step {currentStep} Active Shell
-              </p>
-              <p className="text-xs text-slate-500 mt-1">
-                Phase 3 complete: Stepper header, progress track, and animated container ready.
-              </p>
-            </div>
+            {currentStep === 1 && <Step1Personal />}
+            {currentStep === 2 && <Step2Address />}
+            {currentStep === 3 && (
+              <div className="py-8 text-center border border-dashed border-slate-800 rounded-xl bg-slate-950/40">
+                <p className="text-slate-300 font-medium">Step 3: Account Credentials</p>
+                <p className="text-xs text-slate-500 mt-1">Upcoming in Phase 5</p>
+              </div>
+            )}
+            {currentStep === 4 && (
+              <div className="py-8 text-center border border-dashed border-slate-800 rounded-xl bg-slate-950/40">
+                <p className="text-slate-300 font-medium">Step 4: Confirmation</p>
+                <p className="text-xs text-slate-500 mt-1">Upcoming in Phase 5</p>
+              </div>
+            )}
           </FormCardWrapper>
         </div>
 
