@@ -9,6 +9,8 @@ import { Sparkles, ShieldCheck } from "lucide-react";
 
 import { Step1Personal } from "@/components/steps/Step1Personal";
 import { Step2Address } from "@/components/steps/Step2Address";
+import { Step3Credentials } from "@/components/steps/Step3Credentials";
+import { Step4Confirmation } from "@/components/steps/Step4Confirmation";
 
 export default function Home() {
   const isHydrated = useFormHydration();
@@ -61,18 +63,8 @@ export default function Home() {
           <FormCardWrapper>
             {currentStep === 1 && <Step1Personal />}
             {currentStep === 2 && <Step2Address />}
-            {currentStep === 3 && (
-              <div className="py-8 text-center border border-dashed border-slate-800 rounded-xl bg-slate-950/40">
-                <p className="text-slate-300 font-medium">Step 3: Account Credentials</p>
-                <p className="text-xs text-slate-500 mt-1">Upcoming in Phase 5</p>
-              </div>
-            )}
-            {currentStep === 4 && (
-              <div className="py-8 text-center border border-dashed border-slate-800 rounded-xl bg-slate-950/40">
-                <p className="text-slate-300 font-medium">Step 4: Confirmation</p>
-                <p className="text-xs text-slate-500 mt-1">Upcoming in Phase 5</p>
-              </div>
-            )}
+            {currentStep === 3 && <Step3Credentials />}
+            {currentStep === 4 && <Step4Confirmation />}
           </FormCardWrapper>
         </div>
 
